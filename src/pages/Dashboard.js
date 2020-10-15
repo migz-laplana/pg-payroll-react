@@ -7,7 +7,6 @@ import record from "../images/record.png"
 // import { db } from './firebase'
 import "fontsource-roboto"
 import PageTitle from '../components/PageTitle'
-import { Button } from 'antd'
 import Header from '../components/Header'
 
 
@@ -63,8 +62,6 @@ function Dashboard() {
     return (
 
         <div className="dashboard">
-            <Header />
-            {/* <Button type="primary"></Button> */}
             <PageTitle title="Dashboard" />
             <Container maxWidth="lg">
                 <Paper className={classes.mainMenu} elevation={3}>

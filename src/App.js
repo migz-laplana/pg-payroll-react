@@ -7,7 +7,8 @@ import Employees from './pages/Employees';
 import Header from './components/Header';
 import Payslip from './pages/Payslip';
 import Signin from './pages/Signin';
-import AntDashboard from "./pages/AntDashboard"
+import { FuegoProvider } from '@nandorojo/swr-firestore';
+import { fuego } from './config/firebase';
 
 
 function App() {
@@ -16,48 +17,45 @@ function App() {
     const history = useHistory();
 
     return (
-        // <FuegoProvider fuego={fuego}>
-        <Router>
+        <FuegoProvider fuego={fuego}>
+            <Router>
 
-            <div className="app">
+                <div className="app">
 
-                {/* showing header only if logged in */}
-                {/* {user && <Header />} */}
+                    {/* showing header only if logged in */}
+                    {user && <Header />}
 
 
-                {!user ? <Signin />
-                    :
+                    {!user ? <Signin />
+                        :
 
-                    <Switch>
+                        <Switch>
 
-                        <Route path="/employees">
-                            <Employees />
-                        </Route>
+                            <Route path="/employees">
+                                <Employees />
+                            </Route>
 
-                        <Route path="/attendance">
-                            <Attendance />
-                        </Route>
+                            <Route path="/attendance">
+                                <Attendance />
+                            </Route>
 
-                        <Route path="/payslip">
-                            <Payslip />
-                        </Route>
+                            <Route path="/payslip">
+                                <Payslip />
+                            </Route>
 
-                        <Route path="/test">
-                            <AntDashboard />
-                        </Route>
-                        <Route path="/">
-                            <Dashboard />
-                        </Route>
+                            <Route path="/">
+                                <Dashboard />
+                            </Route>
 
-                    </Switch>
+                        </Switch>
 
-                }
+                    }
 
-            </div>
+                </div>
 
-        </Router>
+            </Router>
 
-        // </FuegoProvider>
+        </FuegoProvider>
     );
 }
 
