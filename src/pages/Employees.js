@@ -141,7 +141,7 @@ function Employees() {
                          </Button>
                     </Grid>
                     <Grid item xs={4}>
-                        <Button variant="contained" color="secondary" fullWidth onClick={deleteEmployee} startIcon={<DeleteIcon />}  >
+                        <Button variant="outlined" color="default" fullWidth onClick={deleteEmployee} startIcon={<DeleteIcon />}  >
                             Delete Employee
                          </Button>
                     </Grid>

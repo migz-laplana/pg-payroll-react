@@ -4,8 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from './config/theme';
+
 import { FuegoProvider } from '@nandorojo/swr-firestore';
 import { fuego } from './config/firebase';
+import { CssBaseline } from '@material-ui/core';
 
 // import '@fortawesome/fontawesome-free/css/all.min.css'; import
 //   'bootstrap-css-only/css/bootstrap.min.css'; import
@@ -13,11 +17,14 @@ import { fuego } from './config/firebase';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FuegoProvider fuego={fuego}>
-      <App />
-    </FuegoProvider>,
+    <ThemeProvider theme={theme}>
+      <FuegoProvider fuego={fuego}>
+        <CssBaseline />
+        <App />
+      </FuegoProvider>
+    </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

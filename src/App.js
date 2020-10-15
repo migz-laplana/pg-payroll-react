@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useHistory, Redirect } from 'react-router-dom';
 import './App.css';
 import Attendance from './pages/Attendance';
 import Dashboard from './pages/Dashboard';
@@ -16,40 +16,34 @@ function App() {
     const [user, setUser] = useState(true);
     const history = useHistory();
 
+
+
     return (
         <FuegoProvider fuego={fuego}>
+
             <Router>
 
                 <div className="app">
 
-                    {/* showing header only if logged in */}
-                    {user && <Header />}
+                    {/* {user && <Header />} */}
 
+                    <Switch>
 
-                    {!user ? <Signin />
-                        :
+                        {!user ?
+                            <div>
+                                <Redirect to="/signin" />
+                                <Route exact path="/signin">
+                                    <Signin />
+                                </Route>
+                            </div>
+                            :
+                            <div>
+                                <Redirect from="/" to="/home" />
+                                <Route exact path="/:pageName?" render={(props => <Header {...props} />)} />
+                            </div>
+                        }
 
-                        <Switch>
-
-                            <Route path="/employees">
-                                <Employees />
-                            </Route>
-
-                            <Route path="/attendance">
-                                <Attendance />
-                            </Route>
-
-                            <Route path="/payslip">
-                                <Payslip />
-                            </Route>
-
-                            <Route path="/">
-                                <Dashboard />
-                            </Route>
-
-                        </Switch>
-
-                    }
+                    </Switch>
 
                 </div>
 
