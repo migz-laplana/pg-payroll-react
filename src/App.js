@@ -1,26 +1,64 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
 import './App.css';
+import Attendance from './pages/Attendance';
+import Dashboard from './pages/Dashboard';
+import Employees from './pages/Employees';
+import Header from './components/Header';
+import Payslip from './pages/Payslip';
+import Signin from './pages/Signin';
+import AntDashboard from "./pages/AntDashboard"
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [user, setUser] = useState(true);
+    const history = useHistory();
+
+    return (
+        // <FuegoProvider fuego={fuego}>
+        <Router>
+
+            <div className="app">
+
+                {/* showing header only if logged in */}
+                {/* {user && <Header />} */}
+
+
+                {!user ? <Signin />
+                    :
+
+                    <Switch>
+
+                        <Route path="/employees">
+                            <Employees />
+                        </Route>
+
+                        <Route path="/attendance">
+                            <Attendance />
+                        </Route>
+
+                        <Route path="/payslip">
+                            <Payslip />
+                        </Route>
+
+                        <Route path="/test">
+                            <AntDashboard />
+                        </Route>
+                        <Route path="/">
+                            <Dashboard />
+                        </Route>
+
+                    </Switch>
+
+                }
+
+            </div>
+
+        </Router>
+
+        // </FuegoProvider>
+    );
 }
 
 export default App;

@@ -4,9 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { FuegoProvider } from '@nandorojo/swr-firestore';
+import { fuego } from './config/firebase';
+
+// import '@fortawesome/fontawesome-free/css/all.min.css'; import
+//   'bootstrap-css-only/css/bootstrap.min.css'; import
+//   'mdbreact/dist/css/mdb.css';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FuegoProvider fuego={fuego}>
+      <App />
+    </FuegoProvider>,
   </React.StrictMode>,
   document.getElementById('root')
 );
