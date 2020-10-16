@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 import "fontsource-roboto";
 import PropTypes from "prop-types";
 import Dashboard from "../pages/Dashboard";
@@ -59,6 +60,10 @@ const useStyles = makeStyles((theme) => ({
     alignedTabs: {
         position: "relative",
         top: "8px",
+    },
+    logout__button: {
+        color: theme.palette.common.white,
+        borderColor: theme.palette.common.white,
     },
 }));
 
@@ -109,6 +114,16 @@ function Header(props) {
                         <Tab label="Attendance" {...a11yProps(2)} />
                         <Tab label="Payslip" {...a11yProps(3)} />
                     </Tabs>
+                    <Box ml="auto" mr={6} my="auto">
+                        <Button
+                            variant="outlined"
+                            color="default"
+                            classes={{ outlined: classes.logout__button }}
+                            startIcon={<MeetingRoomIcon />}
+                        >
+                            Log Out
+                        </Button>
+                    </Box>
                 </Grid>
             </AppBar>
 
