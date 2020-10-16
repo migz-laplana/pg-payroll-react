@@ -3,20 +3,14 @@ import {
     Box,
     Button,
     Grid,
-    IconButton,
     makeStyles,
     Tab,
     Tabs,
-    Toolbar,
     Typography,
 } from "@material-ui/core";
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import MenuIcon from "@material-ui/icons/Menu";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { useParams } from "react-router-dom";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
-import "fontsource-roboto";
-import PropTypes from "prop-types";
 import Dashboard from "../pages/Dashboard";
 import Employees from "../pages/Employees";
 import Attendance from "../pages/Attendance";
