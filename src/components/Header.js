@@ -72,6 +72,7 @@ function Header(props) {
     const [currentPageNum, setPageNum] = useState(
         typeof pageName === "undefined" ? 0 : currentPage
     );
+    // console.log(typeof (pageName));
 
     const pageChange = (e, newPage) => {
         history.push(`${pages[newPage]}`); //pushes to a new page
