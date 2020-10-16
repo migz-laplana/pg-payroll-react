@@ -1,5 +1,5 @@
-import firebase from "firebase"
-import { Fuego } from '@nandorojo/swr-firestore'
+import firebase from "firebase";
+import { Fuego } from "@nandorojo/swr-firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDCFuBNl_-dvrOxI7yQPAWegWGaih6l7io",
@@ -9,7 +9,7 @@ const firebaseConfig = {
     storageBucket: "pg-payroll.appspot.com",
     messagingSenderId: "209497032755",
     appId: "1:209497032755:web:fc7f2c05404073adb67b46",
-    measurementId: "G-D9RWKE0F2D"
+    measurementId: "G-D9RWKE0F2D",
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -19,6 +19,5 @@ const auth = firebase.auth();
 
 //firestore swr
 const fuego = new Fuego(firebaseConfig);
-
 
 export { db, auth, fuego };
